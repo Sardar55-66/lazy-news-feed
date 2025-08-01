@@ -48,14 +48,14 @@ const NewsDetail: React.FC<NewsDetailProps> = ({ news, onBack }) => {
             </div>
           </Space>
         </Card>
-        
-        <Button
-          type="primary"
-          icon={<ArrowLeftOutlined />}
-          onClick={onBack}
-          className={styles.backButton}
-        />
       </div>
+      
+      <Button
+        type="primary"
+        icon={<ArrowLeftOutlined />}
+        onClick={onBack}
+        className={styles.backButton}
+      />
     </div>
   );
 };

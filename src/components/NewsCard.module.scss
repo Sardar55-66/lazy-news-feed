@@ -9,14 +9,28 @@
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   }
+  
+  @media (max-width: 768px) {
+    margin-bottom: 12px;
+    border-radius: 8px;
+  }
 
   .cardBody {
     padding: 20px;
+    
+    @media (max-width: 768px) {
+      padding: 12px;
+    }
   }
 
   .title {
     margin-bottom: 12px;
     color: #ffffff !important;
+    
+    @media (max-width: 768px) {
+      font-size: 16px !important;
+      line-height: 1.4;
+    }
   }
 
   .body {
@@ -24,6 +38,11 @@
     font-size: 14px;
     line-height: 1.6;
     color: #cccccc;
+    
+    @media (max-width: 768px) {
+      font-size: 12px;
+      line-height: 1.4;
+    }
   }
 
   .tagsContainer {
@@ -34,6 +53,11 @@
     margin-bottom: 4px;
     border-radius: 6px;
     font-weight: 500;
+    
+    @media (max-width: 768px) {
+      font-size: 10px;
+      padding: 2px 6px;
+    }
   }
 
   .reactionsContainer {
@@ -44,10 +68,18 @@
 
   .reactionsIcon {
     color: #ff4d4f;
+    
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
   }
 
   .reactionsText {
     color: #cccccc;
     font-size: 12px;
+    
+    @media (max-width: 768px) {
+      font-size: 10px;
+    }
   }
 } 
