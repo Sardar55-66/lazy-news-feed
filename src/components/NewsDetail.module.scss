@@ -10,15 +10,15 @@
   max-width: 800px;
   margin: 0 auto;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .backButton {
-  position: fixed;
-  bottom: 0;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
+  position: relative;
+  margin: 20px auto 0;
+  display: block;
   border-radius: 50%;
   width: 60px !important;
   height: 60px !important;
@@ -32,7 +32,7 @@
   color: #ffffff !important;
 
   &:hover {
-    transform: translate(-50%, -50%) scale(1.1);
+    transform: scale(1.1);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4) !important;
     background-color: #555555 !important;
     border-color: #666666 !important;
@@ -43,10 +43,12 @@
   margin-top: 20px;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  max-height: 70vh;
+  overflow-y: auto;
 }
 
 .cardBody {
-  padding: 30px;
+  padding: 20px;
 }
 
 .title {

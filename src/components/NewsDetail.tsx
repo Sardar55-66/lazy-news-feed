@@ -15,14 +15,7 @@ const NewsDetail: React.FC<NewsDetailProps> = ({ news, onBack }) => {
   return (
     <div className={styles.newsDetail}>
       <div className={styles.container}>
-        <Button
-          type="primary"
-          icon={<ArrowLeftOutlined />}
-          onClick={onBack}
-          className={styles.backButton}
-        />
-        
-        <Card className={styles.card} bodyStyle={{ padding: 30 }}>
+        <Card className={styles.card} bodyStyle={{ padding: 20 }}>
           <Title level={2} className={styles.title}>
             {news.title}
           </Title>
@@ -55,6 +48,13 @@ const NewsDetail: React.FC<NewsDetailProps> = ({ news, onBack }) => {
             </div>
           </Space>
         </Card>
+        
+        <Button
+          type="primary"
+          icon={<ArrowLeftOutlined />}
+          onClick={onBack}
+          className={styles.backButton}
+        />
       </div>
     </div>
   );
