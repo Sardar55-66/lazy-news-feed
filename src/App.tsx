@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { ConfigProvider } from 'antd';
 import ruRU from 'antd/locale/ru_RU';
 import { store } from './store/store';
+import Header from './components/Header';
 import NewsList from './components/NewsList';
 import NewsDetail from './components/NewsDetail';
 import { useAppSelector, useAppDispatch } from './store/hooks';
@@ -19,6 +20,7 @@ const AppContent: React.FC = () => {
 
   return (
     <div className={styles.app}>
+      <Header />
       {isDetailView && selectedNews ? (
         <NewsDetail news={selectedNews} onBack={handleBack} />
       ) : (

@@ -1,12 +1,12 @@
 import React, { useEffect, useCallback, useRef } from 'react';
-import { List, Spin, Alert, Typography } from 'antd';
+import { List, Spin, Alert } from 'antd';
 import { useAppSelector, useAppDispatch } from '../store/hooks';
 import { fetchNews } from '../store/newsSlice';
 import { openNewsDetail } from '../store/uiSlice';
 import NewsCard from './NewsCard';
 import styles from './NewsList.module.scss';
 
-const { Title } = Typography;
+
 
 const NewsList: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -51,14 +51,6 @@ const NewsList: React.FC = () => {
 
   return (
     <div className={styles.newsList}>
-      <Title level={2} className={styles.title}>
-        Лента новостей
-      </Title>
-      {items.length > 0 && (
-        <div className={styles.counter}>
-          Загружено новостей: {items.length} из {total}
-        </div>
-      )}
       
       <List
         dataSource={items}
