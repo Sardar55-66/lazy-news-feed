@@ -1,46 +1,80 @@
-# Getting Started with Create React App
+# Лента новостей
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Приложение для отображения ленты новостей с бесконечной прокруткой и автоматической подгрузкой контента.
 
-## Available Scripts
+## Технологии
 
-In the project directory, you can run:
+- **React** - основная библиотека для создания пользовательского интерфейса
+- **TypeScript** - типизированный JavaScript
+- **Redux Toolkit** - управление состоянием приложения
+- **Ant Design** - UI библиотека для создания современного интерфейса
+- **Axios** - HTTP клиент для работы с API
 
-### `npm start`
+## Функциональность
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- ✅ Загрузка новостей с удаленного сервера (dummyjson.com)
+- ✅ Отображение по 10 новостей на странице
+- ✅ Бесконечная прокрутка с автоматической подгрузкой
+- ✅ Красивые карточки новостей с информацией:
+  - Название (title)
+  - Текст (body) - ограничен тремя строками
+  - Теги
+  - Количество реакций
+- ✅ Современный и отзывчивый дизайн
+- ✅ Обработка ошибок загрузки
+- ✅ Индикаторы загрузки
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Структура проекта
 
-### `npm test`
+```
+src/
+├── components/          # React компоненты
+│   ├── NewsCard.tsx    # Карточка новости
+│   └── NewsList.tsx    # Список новостей с бесконечной прокруткой
+├── store/              # Redux store
+│   ├── hooks.ts        # Типизированные хуки для Redux
+│   ├── newsSlice.ts    # Slice для управления новостями
+│   └── store.ts        # Основной store
+├── services/           # API сервисы
+│   └── newsApi.ts      # Сервис для работы с API новостей
+├── types/              # TypeScript типы
+│   └── news.ts         # Типы для новостей
+└── App.tsx             # Главный компонент приложения
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Запуск проекта
 
-### `npm run build`
+1. Установите зависимости:
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Запустите приложение в режиме разработки:
+```bash
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Откройте [http://localhost:3000](http://localhost:3000) в браузере
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## API
 
-### `npm run eject`
+Приложение использует API [dummyjson.com](https://dummyjson.com/posts) для получения данных о новостях.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Эндпоинт
+- `GET https://dummyjson.com/posts?limit=10&skip=0`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Параметры
+- `limit` - количество новостей для загрузки (по умолчанию 10)
+- `skip` - количество новостей для пропуска (для пагинации)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Особенности реализации
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. **Бесконечная прокрутка**: Используется Intersection Observer API для отслеживания последнего элемента списка
+2. **Оптимизация производительности**: Новости добавляются к существующему списку без перезагрузки
+3. **Обработка ошибок**: Показ уведомлений об ошибках загрузки
+4. **Адаптивный дизайн**: Приложение корректно отображается на различных устройствах
+5. **Типизация**: Полная типизация с использованием TypeScript
 
-## Learn More
+## Скриншоты
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Приложение имеет современный дизайн с градиентным фоном, красивыми карточками новостей и плавными анимациями при наведении.

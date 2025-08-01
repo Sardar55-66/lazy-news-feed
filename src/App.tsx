@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from 'react-redux';
+import { ConfigProvider } from 'antd';
+import ruRU from 'antd/locale/ru_RU';
+import { store } from './store/store';
+import NewsList from './components/NewsList';
+import NewsDetail from './components/NewsDetail';
+import { useAppSelector, useAppDispatch } from './store/hooks';
+import { closeNewsDetail } from './store/uiSlice';
+import styles from './App.module.scss';
 
-function App() {
+const AppContent: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const { selectedNews, isDetailView } = useAppSelector((state) => state.ui);
+
+  const handleBack = () => {
+    dispatch(closeNewsDetail());
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.app}>
+      {isDetailView && selectedNews ? (
+        <NewsDetail news={selectedNews} onBack={handleBack} />
+      ) : (
+        <NewsList />
+      )}
     </div>
   );
-}
+};
+
+const App: React.FC = () => {
+  return (
+    <Provider store={store}>
+      <ConfigProvider locale={ruRU}>
+        <AppContent />
+      </ConfigProvider>
+    </Provider>
+  );
+};
 
 export default App;
